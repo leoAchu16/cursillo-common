@@ -17,7 +17,7 @@ public class FichaAlumno extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
-    private Usuario alumno;
+    private Alumno alumno;
 
     @Column(name = "cedula", nullable = false)
     private String cedula;
