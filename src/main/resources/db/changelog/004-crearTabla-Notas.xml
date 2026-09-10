@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="David Cristaldo">
+        <createTable tableName="notas">
+            <column name="id_nota" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="id_examen" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_notas_examen"
+                             references="examenes(id_examen)"/>
+            </column>
+
+            <column name="id_alumno" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_notas_usuario"
+                             references="usuarios(id_usuario)"/>
+            </column>
+
+            <column name="puntos_correctos" type="INT"/>
+
+            <column name="calificacion" type="INT"/>
+
+            <column name="estado_nota" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="creacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="actualizacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="activo" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -23,7 +23,7 @@ public class Nota extends BaseEntity {
     private Examen examen;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_alumno", nullable = false)
     private Usuario alumno;
 
     @Column(name = "puntos_correctos")
