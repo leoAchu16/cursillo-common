@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="2" author="SEBASTIANLB16">
+        <createTable tableName="fichas_alumnos">
+            <column name="id_ficha" type="int" autoIncrement="true">
+            <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="id_alumno" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="fk_id_alumno"
+                             unique="true"
+                references="usuarios(id_usuario)"/>
+            </column>
+            <column name="cedula"
+                    type="varchar(20)">
+                <constraints nullable="false"
+                             unique="true" />
+            </column>
+            <column name="ruc"
+                    type="varchar(20)"/>
+            <column name="telefono_emergencia"
+            type="varchar(20)"/>
+            <column name="nombre_emergencia" type="varchar(50)"/>
+            <column name="observaciones" type="varchar(200)"/>
+            <column name="creacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actualizacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activo" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
