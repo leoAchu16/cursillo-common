@@ -3,4 +3,10 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
 
     <include file="001-crearTabla-Usuarios.xml" relativeToChangelogFile="true"/>
+
+
+
+
+
+    <include file="004-crearTabla-Notas.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
