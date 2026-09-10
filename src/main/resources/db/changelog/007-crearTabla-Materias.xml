@@ -1,49 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<databaseChangeLog
+<databaseChangeLog 
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-
-    <changeSet id="4" author="David Cristaldo">
-        <createTable tableName="notas">
-            <column name="id_nota" type="INT" autoIncrement="true">
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="7" author="leo">
+        <createTable tableName="materias">
+            <column name="id_materia" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-
-            <column name="id_examen" type="INT">
+            <column name="id_profesor" type="int">
                 <constraints nullable="false"
-                             foreignKeyName="fk_notas_examen"
-                             references="examenes(id_examen)"/>
-            </column>
-
-            <column name="id_alumno" type="INT">
-                <constraints nullable="false"
-                             foreignKeyName="fk_notas_usuario"
+                             foreignKeyName="fk_materia_profesor"
                              references="usuarios(id_usuario)"/>
             </column>
-
-            <column name="puntos_correctos" type="INT"/>
-
-            <column name="calificacion" type="INT"/>
-
-            <column name="estado_nota" type="varchar(20)">
+            <column name="nombre_materia" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
-
+            <column name="dia" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descripcion" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="creacion" type="datetime">
                 <constraints nullable="false"/>
             </column>
-
             <column name="actualizacion" type="datetime">
                 <constraints nullable="false"/>
             </column>
-
             <column name="activo" type="boolean">
                 <constraints nullable="false"/>
             </column>
-
         </createTable>
     </changeSet>
-
 </databaseChangeLog>

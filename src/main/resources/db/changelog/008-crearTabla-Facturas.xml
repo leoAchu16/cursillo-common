@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="9" author="David Cristaldo">
+        <createTable tableName="facturas">
+            <column name="id_factura" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="id_alumno" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_facturas_alumno"
+                             references="usuarios(id_usuario)"/>
+            </column>
+
+            <column name="id_secretaria" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_facturas_secretaria"
+                             references="usuarios(id_usuario)"/>
+            </column>
+
+            <column name="id_inscripcion" type="INT">
+                <constraints nullable="false"
+                             foreignKeyName="fk_facturas_inscripcion"
+                             references="inscripciones(id_inscripcion)"/>
+            </column>
+
+            <column name="ruc" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="total" type="INT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="metodo_pago" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="fecha_emision" type="date">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="creacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="actualizacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="activo" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
