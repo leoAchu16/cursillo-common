@@ -12,8 +12,6 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 @Setter
-
-
 /**
  * Clase base para las entidades.
  * Solo proporciona los atributos como creacion, actualizacion y activo

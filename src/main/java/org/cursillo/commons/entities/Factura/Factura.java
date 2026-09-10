@@ -11,6 +11,7 @@ import org.cursillo.commons.entities.Usuarios.Usuario;
 import org.cursillo.commons.entities.base.BaseEntity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "facturas")
@@ -46,4 +47,6 @@ public class Factura extends BaseEntity {
     @Column(name = "fecha_emision", nullable = false)
     private LocalDate fechaEmision;
 
+    @OneToMany(mappedBy = "factura")
+    private List<DetallesFactura> detalles;
 }

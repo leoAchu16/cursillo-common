@@ -9,6 +9,7 @@ import org.cursillo.commons.entities.Usuarios.Secretaria;
 import org.cursillo.commons.entities.base.BaseEntity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "inscripciones")
@@ -37,4 +38,7 @@ public class Inscripcion extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_pago", nullable = false)
     private EstadoPago estadoPago;
+
+    @OneToMany(mappedBy = "inscripcion")
+    private List<DetallesInscripcion> detalles;
 }

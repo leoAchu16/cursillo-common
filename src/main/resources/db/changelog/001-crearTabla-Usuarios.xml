@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
+    <changeSet id="1" author="leo">
+        <createTable tableName="usuarios">
+            <column name="id_usuario" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+            <column name="nombre" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contrasenha" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telefono" type="varchar(20)"/>
+            <column name="rol" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actualizacion" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activo" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
