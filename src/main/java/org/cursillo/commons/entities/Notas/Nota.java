@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.cursillo.commons.entities.Enums.EstadoNota;
 import org.cursillo.commons.entities.Examenes.Examen;
+import org.cursillo.commons.entities.Usuarios.Alumno;
 import org.cursillo.commons.entities.Usuarios.Usuario;
 import org.cursillo.commons.entities.base.BaseEntity;
 
@@ -24,7 +25,7 @@ public class Nota extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_alumno", nullable = false)
-    private Usuario alumno;
+    private Alumno alumno;
 
     @Column(name = "puntos_correctos")
     private Integer puntosCorrectos;
