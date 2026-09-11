@@ -12,7 +12,7 @@
             <column name="id_inscripcion" type="int">
                 <constraints nullable="false"
                              foreignKeyName="fk_detalle_inscripcion_inscripcion"
-                             references="inscripciones(id_inscripcion"/>
+                             references="inscripciones(id_inscripcion)"/>
             </column>
             <column name="id_materia" type="int">
                 <constraints nullable="true"
