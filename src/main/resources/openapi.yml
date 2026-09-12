@@ -1,6 +1,286 @@
 openapi: 3.0.1
 info:
   title: OpenAPI
-paths:
+  version: 1.0.0
+paths: {}
 components:
   schemas:
+
+    Rol:
+      type: string
+      enum: [ PROFESOR, ALUMNO, SECRETARIA ]
+
+    EstadoPago:
+      type: string
+      enum: [ PAGADO, PENDIENTE ]
+
+    EstadoNota:
+      type: string
+      enum: [ APROBADO, REPROBADO, AUSENTE ]
+
+    EstadoExamen:
+      type: string
+      enum: [ CALIFICADO, PENDIENTE ]
+
+    MetodoPago:
+      type: string
+      enum: [ EFECTIVO, TARJETA, TRANSFERENCIA ]
+
+    TipoInscripcion:
+      type: string
+      enum: [ EXAMEN, MATERIA ]
+
+    DiasSemana:
+      type: string
+      enum: [ LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO ]
+
+    UsuarioResponseDTO:
+      type: object
+      properties:
+        idUsuario:
+          type: integer
+        nombre:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: string
+        rol:
+          $ref: '#/components/schemas/Rol'
+
+    UsuarioRequestDTO:
+      type: object
+      required:
+        - nombre
+        - email
+        - contrasenha
+        - telefono
+        - rol
+      properties:
+        nombre:
+          type: string
+        email:
+          type: string
+        contrasenha:
+          type: string
+        telefono:
+          type: string
+        rol:
+          $ref: '#/components/schemas/Rol'
+
+    FichaAlumnoDTO:
+      type: object
+      required:
+        - idAlumno
+        - cedula
+        - ruc
+        - telefonoEmergencia
+        - nombreEmergencia
+      properties:
+        idFicha:
+          type: integer
+        idAlumno:
+          type: integer
+        cedula:
+          type: string
+        ruc:
+          type: string
+        telefonoEmergencia:
+          type: string
+        nombreEmergencia:
+          type: string
+        observaciones:
+          type: string
+
+
+    NotaDTO:
+      type: object
+      required:
+        - idExamen
+        - idAlumno
+        - puntosCorrectos
+        - calificacion
+        - estadoNota
+      properties:
+        idNota:
+          type: integer
+        idExamen:
+          type: integer
+        idAlumno:
+          type: integer
+        puntosCorrectos:
+          type: integer
+        calificacion:
+          type: integer
+        estadoNota:
+          $ref: '#/components/schemas/EstadoNota'
+
+
+
+    ExamenDTO:
+      type: object
+      required:
+        - idMateria
+        - idProfesor
+        - hora
+        - fecha
+        - titulo
+        - totalPuntos
+        - estado
+      properties:
+        idExamen:
+          type: integer
+        idMateria:
+          type: integer
+        idProfesor:
+          type: integer
+        hora:
+          type: string
+          format: time
+        fecha:
+          type: string
+          format: date
+        titulo:
+          type: string
+        totalPuntos:
+          type: integer
+        estado:
+          $ref: '#/components/schemas/EstadoExamen'
+        creacion:
+          type: string
+          format: date-time
+        actualizacion:
+          type: string
+          format: date-time
+
+    MateriaDTO:
+      type: object
+      required:
+        - idProfesor
+        - nombreMateria
+        - dia
+        - descripcion
+      properties:
+        idMateria:
+          type: integer
+        idProfesor:
+          type: integer
+        nombreMateria:
+          type: string
+        dia:
+          $ref: '#/components/schemas/DiasSemana'
+        descripcion:
+          type: string
+        actualizacion:
+          type: string
+          format: date-time
+
+
+    FacturaDTO:
+      type: object
+      required:
+        - idAlumno
+        - idSecretaria
+        - ruc
+        - total
+        - metodoPago
+        - fechaEmision
+      properties:
+        idFactura:
+          type: integer
+        idAlumno:
+          type: integer
+        idSecretaria:
+          type: integer
+        idInscripcion:
+          type: integer
+        ruc:
+          type: string
+        total:
+          type: integer
+        metodoPago:
+          $ref: '#/components/schemas/MetodoPago'
+        fechaEmision:
+          type: string
+          format: date
+        detallesFactura:
+          type: array
+          default: []
+          items:
+            $ref: '#/components/schemas/DetallesFacturaDTO'
+
+    DetallesFacturaDTO:
+      type: object
+      required:
+        - idConcepto
+        - subtotal
+      properties:
+        idDetalleFactura:
+          type: integer
+        idFactura:
+          type: integer
+        idConcepto:
+          type: integer
+        subtotal:
+          type: integer
+        cantidad:
+          type: integer
+
+    ConceptoDTO:
+      type: object
+      required:
+        - nombre
+        - montoBase
+      properties:
+        idConcepto:
+          type: integer
+        nombre:
+          type: string
+        montoBase:
+          type: integer
+
+    InscripcionDTO:
+      type: object
+      required:
+        - idAlumno
+        - fechaInscripcion
+        - total
+        - estadoPago
+      properties:
+        idInscripcion:
+          type: integer
+        idAlumno:
+          type: integer
+        idSecretaria:
+          type: integer
+        fechaInscripcion:
+          type: string
+          format: date
+        total:
+          type: integer
+        estadoPago:
+          $ref: '#/components/schemas/EstadoPago'
+        detallesInscripcion:
+          type: array
+          default: []
+          items:
+            $ref: '#/components/schemas/DetallesInscripcionDTO'
+
+    DetallesInscripcionDTO:
+      type: object
+      required:
+        - costo
+        - tipoInscripcion
+      properties:
+        idDetalleInscripcion:
+          type: integer
+        idInscripcion:
+          type: integer
+        idMateria:
+          type: integer
+        idExamen:
+          type: integer
+        costo:
+          type: integer
+        tipoInscripcion:
+          $ref: '#/components/schemas/TipoInscripcion'
