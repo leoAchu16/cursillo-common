@@ -3,6 +3,7 @@ package org.cursillo.commons.entities.Materias;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.cursillo.commons.entities.Enums.DiasSemana;
 import org.cursillo.commons.entities.Usuarios.Profesor;
 import org.cursillo.commons.entities.Usuarios.Usuario;
 import org.cursillo.commons.entities.base.BaseEntity;
@@ -25,8 +26,9 @@ public class Materia  extends BaseEntity {
     @Column(name = "nombre_materia", nullable = false)
     private String nombreMateria;
 
+    @Enumerated(EnumType.STRING)
     @Column(name ="dia", nullable = false)
-    private String dia;
+    private DiasSemana dia;
 
     @Column(name = "descripcion")
     private String descripcion;

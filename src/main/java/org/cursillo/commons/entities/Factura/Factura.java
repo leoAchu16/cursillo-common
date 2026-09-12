@@ -7,7 +7,6 @@ import org.cursillo.commons.entities.Enums.MetodoPago;
 import org.cursillo.commons.entities.Inscripciones.Inscripcion;
 import org.cursillo.commons.entities.Usuarios.Alumno;
 import org.cursillo.commons.entities.Usuarios.Secretaria;
-import org.cursillo.commons.entities.Usuarios.Usuario;
 import org.cursillo.commons.entities.base.BaseEntity;
 
 import java.time.LocalDate;
