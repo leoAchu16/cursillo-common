@@ -39,6 +39,6 @@ public class Inscripcion extends BaseEntity {
     @Column(name = "estado_pago", nullable = false)
     private EstadoPago estadoPago;
 
-    @OneToMany(mappedBy = "inscripcion")
+    @OneToMany(mappedBy = "inscripcion", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallesInscripcion> detalles;
 }

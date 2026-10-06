@@ -140,14 +140,15 @@
                         </goals>
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/openapi.yml</inputSpec>
-                            <generatorName>java</generatorName>
-                            <library>native</library>
+                            <generatorName>spring</generatorName>
                             <modelPackage>org.cursillo.commons.dto</modelPackage>
 
                             <generateApis>false</generateApis>
                             <generateApiTests>false</generateApiTests>
                             <generateApiDocumentation>false</generateApiDocumentation>
                             <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateModels>true</generateModels>
 
                             <configOptions>
                                 <dateLibrary>java8</dateLibrary>
