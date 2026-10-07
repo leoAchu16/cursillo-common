@@ -19,5 +19,5 @@
     <include file="008-crearTabla-Facturas.xml" relativeToChangelogFile="true"/>
     <include file="009-crearTabla-Conceptos.xml" relativeToChangelogFile="true"/>
     <include file="010-crearTable-Detalles_Facturas.xml" relativeToChangelogFile="true"/>
-
+    <include file="011-permitir-secretaria-null-en-Inscripciones.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

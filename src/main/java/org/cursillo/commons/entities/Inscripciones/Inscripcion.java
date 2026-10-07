@@ -26,7 +26,7 @@ public class Inscripcion extends BaseEntity {
     private Alumno alumno;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_secretaria", nullable = false)
+    @JoinColumn(name = "id_secretaria")
     private Secretaria secretaria;
 
     @Column(name = "fecha_inscripcion", nullable = false)
