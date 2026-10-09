@@ -9,6 +9,7 @@ import org.cursillo.commons.entities.Usuarios.Secretaria;
 import org.cursillo.commons.entities.base.BaseEntity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,5 +41,5 @@ public class Inscripcion extends BaseEntity {
     private EstadoPago estadoPago;
 
     @OneToMany(mappedBy = "inscripcion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetallesInscripcion> detalles;
+    private List<DetallesInscripcion> detalles = new ArrayList<>();
 }
