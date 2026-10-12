@@ -40,4 +40,12 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="4" author="leo">
+        <addColumn tableName="examenes">
+            <column name="estado_examen" type="varchar(50)" defaultValue="PENDIENTE">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

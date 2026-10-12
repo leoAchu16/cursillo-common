@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 import org.cursillo.commons.entities.Enums.EstadoExamen;
 import org.cursillo.commons.entities.Materias.Materia;
+import org.cursillo.commons.entities.Usuarios.Alumno;
 import org.cursillo.commons.entities.Usuarios.Profesor;
-import org.cursillo.commons.entities.Usuarios.Usuario;
 import org.cursillo.commons.entities.base.BaseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Table(name = "examenes")
@@ -45,5 +46,12 @@ public class Examen extends BaseEntity {
 
     @Column(name = "total_puntos", nullable = false)
     private Integer totalPuntos;
+    @ManyToMany
+    @JoinTable(
+            name = "notas",
+            joinColumns = @JoinColumn(name = "id_examen", insertable = false, updatable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_alumno", insertable = false, updatable = false)
+    )
+    private List<Alumno> alumnos;
 
 }
