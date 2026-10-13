@@ -7,6 +7,7 @@ import org.cursillo.commons.entities.Enums.EstadoPago;
 import org.cursillo.commons.entities.Usuarios.Alumno;
 import org.cursillo.commons.entities.Usuarios.Secretaria;
 import org.cursillo.commons.entities.base.BaseEntity;
+import org.cursillo.commons.entities.descuentos.Descuento;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,6 +30,10 @@ public class Inscripcion extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_secretaria")
     private Secretaria secretaria;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_descuento")
+    private Descuento descuento;
 
     @Column(name = "fecha_inscripcion", nullable = false)
     private LocalDate fechaInscripcion;

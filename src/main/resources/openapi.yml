@@ -284,3 +284,19 @@ components:
           type: integer
         tipoInscripcion:
           $ref: '#/components/schemas/TipoInscripcion'
+
+
+    DescuentoDTO:
+      type: object
+      required:
+        - nombre
+        - porcentaje
+      properties:
+        idDescuento:
+          type: integer
+        nombre:
+          type: string
+        porcentaje:
+          type: integer
+        descripcion:
+          type: string
