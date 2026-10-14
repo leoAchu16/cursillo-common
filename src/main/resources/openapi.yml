@@ -253,6 +253,8 @@ components:
           type: integer
         idSecretaria:
           type: integer
+        idDescuento:
+          type: integer
         fechaInscripcion:
           type: string
           format: date
