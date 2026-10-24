@@ -4,22 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="1" author="leo">
-        <createTable tableName="usuarios">
+    <changeSet id="14" author="leo">
+        <createTable tableName="usuario_roles">
             <column name="id_usuario" type="INT" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
+                <constraints nullable="false"
+                    foreignKeyName="fk_usuario_roles_usuario"
+                    references="usuarios(id_usuario)"/>
             </column>
-            <column name="nombre" type="varchar(100)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="email" type="varchar(255)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="contrasenha" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="telefono" type="varchar(20)"/>
-            <column name="rol" type="varchar(20)">
+            <column name="rol" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
             <column name="creacion" type="datetime">
@@ -32,5 +24,8 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <addPrimaryKey tableName="usuario_roles"
+                       columnNames="id_usuario, rol"
+                       constraintName="pk_usuario_roles"/>
     </changeSet>
 </databaseChangeLog>
