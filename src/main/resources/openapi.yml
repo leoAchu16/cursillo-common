@@ -47,6 +47,11 @@ components:
           type: string
         rol:
           $ref: '#/components/schemas/Rol'
+        roles:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/Rol'
 
     UsuarioRequestDTO:
       type: object
@@ -67,6 +72,12 @@ components:
           type: string
         rol:
           $ref: '#/components/schemas/Rol'
+        rolesAdicionales:
+          type: array
+          uniqueItems: true
+          default: [ ]
+          items:
+            $ref: '#/components/schemas/Rol'
 
     FichaAlumnoDTO:
       type: object
@@ -298,3 +309,25 @@ components:
           type: integer
         descripcion:
           type: string
+
+    LoginRequestDTO:
+      type: object
+      required:
+        - email
+        - contrasenha
+      properties:
+        email:
+          type: string
+        contrasenha:
+          type: string
+
+    TokenResponseDTO:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        tokenType:
+          type: string
+        expiresInSeconds:
+          type: integer
+          format: int64
