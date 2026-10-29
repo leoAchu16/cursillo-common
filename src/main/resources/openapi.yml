@@ -331,3 +331,20 @@ components:
         expiresInSeconds:
           type: integer
           format: int64
+
+    RegistroRequestDTO:
+      type: object
+      required:
+        - nombre
+        - email
+        - contrasenha
+        - telefono
+      properties:
+        nombre:
+          type: string
+        email:
+          type: string
+        contrasenha:
+          type: string
+        telefono:
+          type: string

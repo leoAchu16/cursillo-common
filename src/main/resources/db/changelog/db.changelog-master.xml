@@ -23,4 +23,5 @@
     <include file="012-crearTabla-Descuento.xml" relativeToChangelogFile="true"/>
     <include file="013-agregar-campo-idDescuento-en-inscripciones.xml" relativeToChangelogFile="true"/>
     <include file="014-crearTabla-usuario_roles.xml" relativeToChangelogFile="true"/>
+    <include file="015-sacar-auditoria-de-usuario_roles.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
